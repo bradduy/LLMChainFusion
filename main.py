@@ -5,6 +5,9 @@
 
 import ollama
 
+MODEL = ['llama3.1', 'llama3.1:70b', 'llama3.1:405b']
+defaut_model = MODEL[0]
+
 def ai_assistant():
     modes = {
         '1': 'Coding Assistant',
@@ -35,7 +38,7 @@ def ai_assistant():
     init_mess = init_messages[mode]
     conversation = []
 
-    response = ollama.chat(model='llama3.1', messages=[
+    response = ollama.chat(model=defaut_model, messages=[
         {
             'role': 'system',
             'content': init_mess,
@@ -60,7 +63,7 @@ def ai_assistant():
         elif mode == '3':  # Question Answering mode
             user_input = f"Please answer the following question: {user_input}"
 
-        response = ollama.chat(model='llama3.1', messages=conversation + [
+        response = ollama.chat(model=defaut_model, messages=conversation + [
             {
                 'role': 'user',
                 'content': user_input,

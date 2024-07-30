@@ -4,6 +4,13 @@ This repository aims to develop a comprehensive collection of use cases for the 
 
 ** Update Langchain Ollama with latest Meta model [Llama 3.1](https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md).
 
+You can download specific pretrained models compatible with your machine as following:
+- Llama 3.1 (8B params): ```ollama run llama3.1 ```
+- Llama 3.1 (70B params):  ```ollama run llama3.1:70b```
+- Llama 3.1 (405B params): ```ollama run llama3.1:405b```
+
+For more information/models, check out official [Ollama repo](https://github.com/ollama/ollama/blob/main/README.md).
+
 ## Quick Install
 
 With pip:
@@ -18,12 +25,11 @@ conda install langchain -c conda-forge
 conda install ollama -c conda-forge
 ```
 
-## Use Case
+## Use Cases
 - [x] Coding Assistant
 - [x] Sentiment
 - [x] Question/Answer
 - [ ] On going 
-
 
 ## How to use:
 - Run with terminal command:

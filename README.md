@@ -2,24 +2,33 @@
 
 This repository aims to develop a comprehensive collection of use cases for the LangChain framework. Our goal is to integrate Large Language Models (LLMs) with LangChain's interface, enabling seamless development and deployment of natural language processing (NLP) applications.
 
+** Update Langchain Ollama with latest Meta model [Llama 3.1](https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md) 
 
 ## Quick Install
 
 With pip:
 ```bash
 pip install langchain
+pip install ollama
 ```
 
 With conda:
 ```bash
 conda install langchain -c conda-forge
+conda install ollama -c conda-forge
 ```
 
 ## Use Case
+- [x] Coding Assistant
 - [x] Sentiment
 - [x] Question/Answer
 - [ ] On going 
 
+
+## How to use:
+```
+python main.py
+```
 
 ## 💁 Contributing
 

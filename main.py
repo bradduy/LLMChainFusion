@@ -2,13 +2,10 @@
 """
 @author: Brad Duy
 """
-
+import sys
 import ollama
 
-MODEL = ['llama3.1', 'llama3.1:70b', 'llama3.1:405b']
-defaut_model = MODEL[0]
-
-def ai_assistant():
+def ai_assistant(defaut_model='llama3.1'):
     modes = {
         '1': 'Coding Assistant',
         '2': 'Sentiment Analysis',
@@ -97,7 +94,21 @@ def generate_signature():
                 """
     print(signature)
 
+def get_model_name_from_args():
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <model_name>")
+        print("Example: python script.py llama3.1 or python script.py llama3.1:70b or python script.py llama3.1:405b")
+        sys.exit(1)
+
+    model_name = sys.argv[1]
+    if model_name not in ['llama3.1', 'llama3.1:70b', 'llama3.1:405b']:
+        print("Invalid model name. Please choose one of the following:")
+        print("llama3.1, llama3.1:70b, llama3.1:405b")
+        sys.exit(1)
+
+    return model_name
 
 if __name__ == "__main__":
     generate_signature()
-    ai_assistant()
+    model_name = get_model_name_from_args()
+    ai_assistant(model_name)

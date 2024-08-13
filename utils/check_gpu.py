@@ -1,8 +1,15 @@
 import torch
-import math
-import numpy as np
 from pynvml import nvmlInit, nvmlDeviceGetCount, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo, nvmlShutdown
+from utils.param_enum import ModelParams
 
+def get_model_params(model_name='llama3.1'):
+    if model_name.lower() == 'llama3.1':
+        return ModelParams.LLAMA_3_1_8B
+    if model_name.lower() == 'llama3.1:70b':
+        return ModelParams.LLAMA_3_1_70B
+    if model_name.lower() == 'llama3.1:405b':
+        return ModelParams.LLAMA_3_1_405B
+    
 def estimate_model_size(num_params, dtype=torch.float32):
     bytes_per_param = torch.finfo(dtype).bits // 8
     model_size_bytes = num_params * bytes_per_param
@@ -47,7 +54,10 @@ def check_gpu_memory(model_params, dtype=torch.float32):
 
     return gpu_memory, model_size_gb
 
-def can_run_model(model_params, dtype=torch.float32, multi_gpu=False):
+def can_run_model(model_name, dtype=torch.uint8, multi_gpu=False):
+    
+    model_params = get_model_params(model_name).value
+
     gpu_memory, model_size_gb = check_gpu_memory(model_params, dtype)
     
     if multi_gpu:

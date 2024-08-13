@@ -4,6 +4,7 @@
 """
 import sys
 import ollama
+from utils.check_gpu import can_run_model
 
 def ai_assistant(defaut_model='llama3.1'):
     modes = {
@@ -111,4 +112,7 @@ def get_model_name_from_args():
 if __name__ == "__main__":
     generate_signature()
     model_name = get_model_name_from_args()
-    ai_assistant(model_name)
+    if can_run_model(model_name=model_name):
+        ai_assistant(model_name)
+    else:
+        print(f'Sorry!!! You have not enough GPU memory to run the {model_name} model')

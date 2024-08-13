@@ -2,9 +2,11 @@
 
 This repository aims to develop a comprehensive collection of use cases for the LangChain framework. Our goal is to integrate Large Language Models (LLMs) with LangChain's interface, enabling seamless development and deployment of natural language processing (NLP) applications.
 
-** Newest update Nvidia NIM endpoints to build applicate with Llama 3.1-405B.
+*** [Newest update] Check capacity of local GPU memory before building applications with a specific model.
 
-** Update Langchain Ollama with latest Meta model [Llama 3.1](https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md).
+* Nvidia NIM endpoints to build applications with Llama 3.1-405B.
+
+* Langchain Ollama with latest Meta model [Llama 3.1](https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md).
 
 
 [OPTIONAL] You do not need to download model manually. Ollma code can download automatically. But you can download specific pretrained models compatible with your machine by your own as following:
@@ -18,7 +20,7 @@ For more information, check out official [Ollama repo](https://github.com/ollama
 
 With pip:
 ```bash
-pip install ollama
+pip install torch pynvml ollama
 # If used Nvidia service.
 pip install langchain-nvidia-ai-endpoints 
 ```

@@ -48,6 +48,16 @@ For example:
 python main.py llama3.1
 python main_nim.py
 ```
+- Run with (GPU-supported) Docker:
+```
+docker build -t ai-assistant .
+docker run --gpus all -d --name ai-assistant-container -p 8000:8000 ai-assistant
+```
+- Run with Docker (check DockerfilNoGPUSupport file):
+```
+docker build -t ai-assistant .
+docker run -d --name ai-assistant-container -p 8000:8000 ai-assistant
+```
 - Run with GUI:
 ```
 Coming soon

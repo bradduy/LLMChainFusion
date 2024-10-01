@@ -7,8 +7,12 @@ def get_model_params(model_name='llama3.1'):
         return ModelParams.LLAMA_3_1_8B
     if model_name.lower() == 'llama3.1:70b':
         return ModelParams.LLAMA_3_1_70B
-    if model_name.lower() == 'llama3.1:405b':
+    if model_name.lower() == 'llama3.1:4050b':
         return ModelParams.LLAMA_3_1_405B
+    if model_name.lower() == 'llama3.2:11b':
+        return ModelParams.LLAMA_3_2_11B
+    if model_name.lower() == 'llama3.2:90b':
+        return ModelParams.LLAMA_3_2_90B
     
 def estimate_model_size(num_params, dtype=torch.float32):
     bytes_per_param = torch.finfo(dtype).bits // 8
